@@ -21,30 +21,30 @@
   
 
 
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("contact-form");
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault();
-    const formData = new FormData(form);
+// document.addEventListener("DOMContentLoaded", function () {
+//   const form = document.getElementById("contact-form");
+//   form.addEventListener("submit", async function (e) {
+//     e.preventDefault();
+//     const formData = new FormData(form);
 
-    try {
-      const response = await fetch("https://formsubmit.co/ajax/naphydeby@gmail.com", {
-        method: "POST",
-        headers: {
-          'Accept': 'application/json'
-        },
-        body: formData
-      });
+//     try {
+//       const response = await fetch("https://formsubmit.co/ajax/naphydeby@gmail.com", {
+//         method: "POST",
+//         headers: {
+//           'Accept': 'application/json'
+//         },
+//         body: formData
+//       });
 
-      if (response.ok) {
-        alert("Your message has been sent successfully!");
-        form.reset();
-      } else {
-        alert("There was an error sending your message. Please ensure your email is verified with FormSubmit.");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      alert("Failed to send message.");
-    }
-  });
-});
+//       if (response.ok) {
+//         alert("Your message has been sent successfully!");
+//         form.reset();
+//       } else {
+//         alert("There was an error sending your message. Please ensure your email is verified with FormSubmit.");
+//       }
+//     } catch (error) {
+//       console.error("Error:", error);
+//       alert("Failed to send message.");
+//     }
+//   });
+// });
