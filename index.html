@@ -5,47 +5,115 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="Tailwind/tailwind.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p7n+eJ+v4yC4z/fh3nW6D9g1Z7UOq2h6t9n+HhChTXw4MjbfbqQwSPaJ9B4N4WlTk9Ti6LfGhxd4iX06V5f5pA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" >
+
 
 </head>
-<body>
+<body class="box-border m-0 p-0">
+    <nav class=" w-[100%] bg-gray-800 text-white  flex justify-between items-center p-8 fixed top-0 ">
+    <div class="font-semibold text-2xl" >
+        <span class="font-sans" >VC</span>
+        <span class="mt-8">P</span>
+    </div>
+    <ul class="flex font-semibold ">
+        <li class="hover:text-blue-500 cursor-pointer" onclick="document.getElementById('home').scrollIntoView({ behavior: 'smooth' });" >Home</li>
+        <li class="px-4 hover:text-blue-500 cursor-pointer" onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' });">About Us</li>
+        <li class="px-4 hover:text-blue-500 cursor-pointer" onclick="document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' });">Contact</li>
+    </ul>
+    </nav>
     <main class="bg-gray-50 flex flex-col font-sans ">
-        <section class="w-[100%] h-[100vh] bg-[url('image/estatepic.jpeg')] bg-cover bg-center flex flex-col justify-center items-center pt-8" > 
+        <section class="w-[100%] h-[70vh] bg-[url('image/house1.jpeg')] bg-cover bg-center flex flex-col justify-center items-center pt-8" id="home" > 
            <div class=" bg-black opacity-40 backdrop-blur-sm  p-4 flex flex-col justify-center items-center  rounded-lg">
-            <h1 class="text-white text-6xl font-bold shadow-2xl ">Victoria's Court Property</h1>
-            <p class="text-white pt-2 text-2xl" >Find Your Perfect Place With Us</p>
+            <h1 class="text-white text-3xl lg:text-6xl font-bold shadow-2xl ">Victoria Court Property</h1>
+            <p class="text-white pt-2 lg:text-2xl" >Find Your Perfect Place With Us</p>
             <!-- <button class="bg-white text-gray-800 mt-6 font-bold rounded-md p-2">Get in touch</button> -->
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg" onclick="document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' });"><i class="fa-solid fa-envelope mr-2"></i>Get in Touch</button>
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg mt-6" onclick="document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' });">Get in Touch</button>
         
            </div>
         </section>
         <section  class="flex flex-col justify-center items-center text-gray-800 pt-4" >
-         <h2 class="text-4xl font-semibold">About Us</h2>
-         <p>  We specialize in providing top-notch real estate services tailored to meet your specific needs. Our mission is to connect you with the right opportunities quickly and efficiently.
-        </p>
+         <h2 class="text-4xl font-semibold text-gray-800" id="about">About Us</h2>
+         <div class="w-[95%] text-center text-[20px]">
+            <p>  At Victoriacourt Property, we specialize in delivering top-tier real estate services tailored to your unique needs. Whether you're looking to buy, sell, rent, or invest, our dedicated team is committed to providing seamless, efficient, and personalized solutions that align with your goals.
+                    With a deep understanding of the real estate market and a passion for helping clients make informed decisions, we go beyond just transactions—we build lasting relationships based on trust, transparency, and excellence. Our expertise ensures that you have access to the best opportunities, whether you're searching for your dream home, a lucrative investment, or a commercial property that meets your business needs.
+                     We leverage the latest market insights, cutting-edge technology, and a client-first approach to streamline the process and deliver results with speed and efficiency. No matter your real estate aspirations, our mission is to guide you every step of the way, making your journey smooth, rewarding, and stress-free.
+                    Let us help you turn your real estate vision into reality—because at Victoriacourt Property, your success is our priority.
+                
+                    </p>
+         </div>
+         
         </section>
-        <section class="flex flex-col justify-center items-center pt-4" >
+        <!-- Gallery -->
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4 ">
+        <img  src="https://images.unsplash.com/photo-1570129477492-45c003edd2be" alt="duplex" class="w-full h-64 object-cover rounded-lg hover:scale-105 transition-transform">
+        <img src="image/bungalow.jpeg" alt="bungalow" class="w-full h-64 object-cover rounded-lg hover:scale-105 transition-transform">
+        <img src="image/bungalow2.jpeg" alt="3Bedroom" class="w-full h-64 object-cover rounded-lg hover:scale-105 transition-transform">
+        <img src="image/house.jpeg" alt="house" class="w-full h-64 object-cover rounded-lg hover:scale-105 transition-transform">
+    </section>
+        <section class="bg-slate-800 text-white py-16">
+            <div class="max-w-2xl mx-auto px-4" >
+                <h2 class="text-3xl font-bold text-center mb-8">Contact Us</h2>
+                <form id="contact-form" class="space-y-4">
+                    <input type="text" placeholder="Name" name="name"  class="w-full p-3 rounded-lg bg-gray-700 border-none focus:ring-2 focus:ring-orange-500">
+                    <input type="email" placeholder="Email" name="email"  class="w-full p-3 rounded-lg bg-gray-700 border-none focus:ring-2 focus:ring-orange-500">
+                    <input type="tel" placeholder="Phone" name="phone"  class="w-full p-3 rounded-lg bg-gray-700 border-none focus:ring-2 focus:ring-orange-500">
+                    <textarea rows="4" placeholder="Message" name="message"  class="w-full p-3 rounded-lg bg-gray-700 border-none focus:ring-2 focus:ring-orange-500"></textarea>
+                    <button type="submit" class="w-full bg-slate-900 hover:bg-slate-600 text-white py-3 px-6 rounded-lg  font-semibold transition-all duration-300">
+                        Send Inquiry
+                    </button>
+                </form>
+                <div id="form-message" class="mt-4 text-center hidden"></div>
+            </div>
+
+            <div class="flex flex-col justify-center items-center">
+                <div class="pt-4 flex">
+            
+                    <i class="fa-solid fa-envelope text-white mt-2"></i>
+                    <p class="ml-4">contact@Victoriacourtproperty.co.uk</p>    
+                </div>
+                <div class="flex   pt-2 ">
+                    <i class="fa-solid fa-phone text-white mt-8"></i>
+                    <div class="ml-4">
+                        <p > <span class="font-semibold">UK: </span> 07867804364 </p>
+                        <p > <span class="font-semibold">Nigeria: </span>08145605177 </p>
+                        <p > <span class="font-semibold">Canada: </span>+(438)725 5749 </p>
+                    </div>
+            </div>
+           
+        </section>
+    
+        <!-- <section class="flex flex-col justify-center items-center pt-4" >
             <h2  class="text-4xl font-semibold">Contact us</h2>
-            <div class="pt-4">
-                <!-- <i class="fa-solid fa-address-card"></i> -->
-                <i class="fa-solid fa-envelope text-blue-500"></i>
-                <p>naphydeby@gmail.com</p>    
+            <div class="pt-4 flex">
+            
+                <i class="fa-solid fa-envelope text-gray-800 mt-3"></i>
+                <p class="ml-4 text-[20px]">contact@Victoriacourtproperty.co.uk</p>    
             </div>
-            <div>
-                <i class="fa-solid fa-phone text-green-500"></i>
-                <p>+2347028768492, +2348028768492</p>
+            <div class="flex w-[22%] pt-4 ">
+                <i class="fa-solid fa-phone text-gray-800 mt-8"></i>
+                <div class="ml-4">
+                    <p class="text-[20px]"> <span class="font-semibold">UK: </span> 07867804364 </p>
+                    <p class="text-[20px]"> <span class="font-semibold">Nigeria: </span>08145605177 </p>
+                    <p class="text-[20px]"> <span class="font-semibold">Canada: </span>+(438)725 5749 </p>
+                </div>
+               
             </div>
-            <form action="https://formsubmit.co/naphydeby@gmail.com" method="POST" id="contact-form" class="w-[80%] bg-gray-100 p-6 rounded-2xl shadow-md mt-8">
-                <input id="name" name="name" type="text" placeholder="Your Name" class="w-full p-6 mb-4 border rounded-lg" required>
+            <form action="https://formsubmit.co/naphydeby@gmail.com" method="POST"  id="contact-form" class="w-[80%] bg-gray-800  p-6 rounded-2xl shadow-md mt-8  ">
+                <input id="name" name="name" type="text" placeholder="Your Name" class="w-full p-6 mb-4 border rounded-lg border-2  focus:outline-none " required>
                 <input id="email" email="email" type="email" placeholder="Your Email" class="w-full p-6 mb-4 border rounded-lg" required>
                 <textarea id="message" name="message" placeholder="Your Message" rows="4" class="w-full p-3 mb-4 border rounded-lg" required></textarea>
-                <button type="submit" class="bg-gray-800 hover:bg-gray-500 text-white font-bold py-6 px-6 rounded-lg w-full">Send Message</button>
+                <button type="submit" class="bg-white hover:bg-gray-500 text-text-gray-800 hover:text-white text-[20px] font-bold py-6 px-6 rounded-lg w-full  ">Send Message</button>
               </form>
-        </section>
+              <div id="form-message" class="hidden mt-2 text-center"></div>
+        </section> -->
     </main>
-    <footer class="p-4 bg-gray-800 text-white text-center my-8">
+    <footer class="bg-slate-900 text-gray-400 text-center py-4 text-sm">
         <p>&copy; <script>document.write(new Date().getFullYear());</script> Victoria's Court Property. All rights reserved.</p>
-      </footer>
+    </footer>
+    <!-- <footer class= " p-8 bg-gray-800 text-white text-center my-8">
+       
+        <p>&copy; <script>document.write(new Date().getFullYear());</script> Victoria's Court Property. All rights reserved.</p>
+      </footer> -->
       <script src="script.js"></script>
 </body>
 </html>

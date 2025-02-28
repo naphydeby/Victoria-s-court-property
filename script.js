@@ -23,28 +23,69 @@
 
 // document.addEventListener("DOMContentLoaded", function () {
 //   const form = document.getElementById("contact-form");
+//   const messageContainer = document.getElementById("form-message");
+
+//   if (!form || !messageContainer) return; // Prevent errors if elements don't exist
+
 //   form.addEventListener("submit", async function (e) {
 //     e.preventDefault();
 //     const formData = new FormData(form);
 
 //     try {
-//       const response = await fetch("https://formsubmit.co/ajax/naphydeby@gmail.com", {
+//       const response = await fetch("https://formspree.io/f/xovjgvdg", {
 //         method: "POST",
-//         headers: {
-//           'Accept': 'application/json'
-//         },
+//         headers: { 'Accept': 'application/json' },
 //         body: formData
 //       });
 
 //       if (response.ok) {
-//         alert("Your message has been sent successfully!");
+//         messageContainer.innerText = "✅ Your message has been sent successfully!";
+//         messageContainer.classList.remove("hidden", "text-red-500");
+//         messageContainer.classList.add("text-green-500");
 //         form.reset();
 //       } else {
-//         alert("There was an error sending your message. Please ensure your email is verified with FormSubmit.");
+//         messageContainer.innerText = "❌ Error sending message. Please verify your email with FormSubmit.";
+//         messageContainer.classList.remove("hidden", "text-green-500");
+//         messageContainer.classList.add("text-red-500");
 //       }
 //     } catch (error) {
 //       console.error("Error:", error);
-//       alert("Failed to send message.");
+//       messageContainer.innerText = "⚠️ Failed to send message. Please try again later.";
+//       messageContainer.classList.remove("hidden", "text-green-500");
+//       messageContainer.classList.add("text-red-500");
 //     }
 //   });
 // });
+
+document.getElementById('contact-form').addEventListener('submit', async (event) => {
+  event.preventDefault();
+
+  const form = event.target;
+  const formData = new FormData(form);
+  const formMessage = document.getElementById('form-message');
+
+  try {
+      const response = await fetch("https://formspree.io/f/xovjgvdg", {
+          method: 'POST',
+          body: formData,
+          headers: {
+              'Accept': 'application/json'
+          }
+      });
+
+      if (response.ok) {
+          formMessage.textContent = 'Thank you! Your message has been sent.';
+          formMessage.classList.remove('hidden');
+          formMessage.classList.add('text-green-500');
+          form.reset();
+      } else {
+          formMessage.textContent = 'Oops! Something went wrong. Please try again.';
+          formMessage.classList.remove('hidden');
+          formMessage.classList.add('text-red-500');
+      }
+  } catch (error) {
+      formMessage.textContent = 'Network error. Please check your connection and try again.';
+      formMessage.classList.remove('hidden');
+      formMessage.classList.add('text-red-500');
+  }
+});
