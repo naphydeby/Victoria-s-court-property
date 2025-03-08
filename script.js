@@ -65,7 +65,7 @@ document.getElementById('contact-form').addEventListener('submit', async (event)
   const formMessage = document.getElementById('form-message');
 
   try {
-      const response = await fetch("https://formspree.io/f/xovjgvdg", {
+      const response = await fetch("https://formspree.io/f/xanewlvw", {
           method: 'POST',
           body: formData,
           headers: {
